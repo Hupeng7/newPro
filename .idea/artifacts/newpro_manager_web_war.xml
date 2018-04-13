@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="newpro-manager-web:war">
+    <output-path>$PROJECT_DIR$/common-manager/newpro-manager-web/target</output-path>
+    <root id="archive" name="newpro-manager-web.war">
+      <element id="artifact" artifact-name="newpro-manager-web:war exploded" />
+    </root>
+  </artifact>
+</component>
