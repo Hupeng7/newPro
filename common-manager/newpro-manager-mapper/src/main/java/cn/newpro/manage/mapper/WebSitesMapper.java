@@ -13,4 +13,6 @@ import java.util.List;
 @Repository
 public interface WebSitesMapper extends SysMapper<WebSites> {
     List<WebSites> findWebSiteList();
+
+    WebSites findById(int id);
 }

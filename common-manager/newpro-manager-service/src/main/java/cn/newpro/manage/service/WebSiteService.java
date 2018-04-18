@@ -33,4 +33,8 @@ public class WebSiteService extends BaseService<WebSites> {
         PageInfo<WebSites> info = new PageInfo<WebSites>(webSiteList);
         return new EasyUIResult(info.getTotal(), info.getList());
     }
+
+    public WebSites findById(int id){
+        return webSitesMapper.findById(id);
+    }
 }

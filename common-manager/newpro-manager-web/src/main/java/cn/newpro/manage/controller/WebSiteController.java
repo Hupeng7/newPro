@@ -1,13 +1,13 @@
 package cn.newpro.manage.controller;
 
 import cn.newpro.common.vo.EasyUIResult;
+import cn.newpro.manage.pojo.WebSites;
 import cn.newpro.manage.service.WebSiteService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author Administrator
@@ -23,13 +23,34 @@ public class WebSiteController {
 
     @RequestMapping("/query")
     @ResponseBody
-    public EasyUIResult findWebSiteList(int page, int rows) {
+    public EasyUIResult findWebSiteList(@PathVariable int page,@PathVariable int rows) {
         System.out.println("=========>controller");
         return webSiteService.findWebSiteList(page, rows);
     }
 
+    @RequestMapping(name="/findById",method= RequestMethod.GET)
+    @ResponseBody
+    public Object findById(@PathVariable int id){
+        System.out.println("=====id====="+id);
+        WebSites ws = webSiteService.findById(id);
+        System.out.println(ws);
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName( "viewName" );
+        modelAndView.addObject( "viewName" , ws);
+        return modelAndView;
+        //return ws;
+    }
+
+    @ModelAttribute( "/getWebSites" )
+    public WebSites getWebSites() {
+        System. out .println( "---------getUser-------------" );
+        return new WebSites();
+    }
+
     @RequestMapping("/page/{index}")
     public String toIndex(@PathVariable String index) {
+        System.out.println("11111111");
         return index;
     }
 }

@@ -22,7 +22,7 @@
 	<!-- 定义Mapper接口扫描器 目的为其创建代理对象-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 扫描mapper包 -->
-		<property name="basePackage" value="cn.newpro.manage.mapper"/>
+		<property name="basePackage" value="cn.newpro.common.manage.mapper"/>
 	</bean>
 
 </beans>
